@@ -1,39 +1,32 @@
 import { getImageUrl } from './utils.js';
+import Card from 'react-bootstrap/Card';
 
-function Block({ person, size=100}) {
-    return (
-        <img 
-        className='block'
-        src={getImageUrl(person)}
-        alt={person.name}
-        width={size}
-        height={size}
-        />
-    );
-}
+            
+function ImageAndTextExample(props) {
+    var scr1 = getImageUrl(props.person);
+    var cardStyle = {
+        width: props.size,
+        height: props.size
+    }
 
-function Card(props)
-{
-    return (
-        <div>
-            <p>
+  return (
+    <>
+      <Card>
+        <Card.Img variant="top" src={scr1} style={cardStyle}/>
+        <Card.Body>
+          <Card.Text>
             {props.paragraph}
-            </p>
-            <Block
-            size={props.size}
-            person={{
-                imageId : props.person.imageId,
-                name : props.person.name
-            }}
-            />
-        </div>
-    )
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      </>
+      );
 }
 
 export default function Profile() {
     return (
         <div>
-        <Card
+        <ImageAndTextExample
         paragraph={'The start of something great!'}
         size={100}
         person={{
@@ -41,7 +34,7 @@ export default function Profile() {
             name : 'Sabrina Gonzalez Paterski'}
         }
         />  
-        <Card
+        <ImageAndTextExample
         paragraph={'Where the recipe starts!!!!'}
         size={100}
         person = {{
