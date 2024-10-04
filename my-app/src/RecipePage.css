@@ -1,5 +1,8 @@
-.flex-container {
+.d-flex 
+{
     display: flex;
-    flex-direction: row;
-    background-color: dodgerblue;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: skyblue;
+    
 }
